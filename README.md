@@ -8,6 +8,18 @@ Drop-in OTel SpanProcessor that fixes Vercel AI SDK spans for standard observabi
 
 The Vercel AI SDK instruments LLM calls with `ai.*` span attributes. The OpenTelemetry GenAI semantic conventions use `gen_ai.*`. Your Grafana GenAI dashboard panels, Datadog APM filters, and Jaeger trace views break silently — the telemetry data is there, but it's keyed wrong. Every observability vendor (Langfuse, Arize, LangSmith) ships their own proprietary SpanProcessor to paper over this. This package is the vendor-neutral alternative: one processor, every backend.
 
+### Before (without adapter)
+
+The parent `ai.generateText` span has zero `gen_ai.*` attributes. Standard observability dashboards can't read it.
+
+![Before — Jaeger trace showing only ai.* attributes](assets/jaeger-before.png)
+
+### After (with adapter)
+
+Span renamed to `chat`. Full `gen_ai.*` coverage: `gen_ai.system`, `gen_ai.completion`, `gen_ai.operation.name`, token counts — all the attributes standard backends expect.
+
+![After — Jaeger trace showing gen_ai.* attributes mapped by the adapter](assets/jaeger-after.png)
+
 ## Quickstart
 
 ```bash

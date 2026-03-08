@@ -1,0 +1,19 @@
+{
+  "name": "ai-sdk-otel-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "before": "npx tsx before.ts",
+    "after": "npx tsx after.ts"
+  },
+  "dependencies": {
+    "ai": "^4.0.0",
+    "@ai-sdk/openai": "^1.0.0",
+    "@opentelemetry/sdk-node": "^0.57.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
+    "@opentelemetry/sdk-trace-base": "^1.30.0",
+    "@opentelemetry/api": "^1.9.0",
+    "ai-sdk-otel-adapter": "file:..",
+    "tsx": "^4.0.0"
+  }
+}
