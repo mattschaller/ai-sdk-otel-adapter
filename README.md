@@ -12,13 +12,13 @@ The Vercel AI SDK instruments LLM calls with `ai.*` span attributes. The OpenTel
 
 The parent `ai.generateText` span has zero `gen_ai.*` attributes. Standard observability dashboards can't read it.
 
-![Before — Jaeger trace showing only ai.* attributes](assets/jaeger-before.png)
+![Before — Jaeger trace showing only ai.* attributes](https://raw.githubusercontent.com/mattschaller/ai-sdk-otel-adapter/main/assets/jaeger-before.png)
 
 ### After (with adapter)
 
 Span renamed to `chat`. Full `gen_ai.*` coverage: `gen_ai.system`, `gen_ai.completion`, `gen_ai.operation.name`, token counts — all the attributes standard backends expect.
 
-![After — Jaeger trace showing gen_ai.* attributes mapped by the adapter](assets/jaeger-after.png)
+![After — Jaeger trace showing gen_ai.* attributes mapped by the adapter](https://raw.githubusercontent.com/mattschaller/ai-sdk-otel-adapter/main/assets/jaeger-after.png)
 
 ## Quickstart
 
