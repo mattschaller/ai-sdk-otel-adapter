@@ -1,6 +1,6 @@
 {
   "name": "ai-sdk-otel-adapter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Vendor-neutral OTel SpanProcessor that remaps Vercel AI SDK ai.* attributes to gen_ai.* semantic conventions",
   "keywords": [
     "opentelemetry",
